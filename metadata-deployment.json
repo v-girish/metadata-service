@@ -1,0 +1,39 @@
+{
+  "apiVersion": "apps/v1beta2",
+  "kind": "Deployment",
+  "metadata": {
+    "labels": {
+      "app": "todomvc"
+    },
+    "name": "todomvc-deployment"
+  },
+  "spec": {
+    "replicas": 2,
+    "selector": {
+      "matchLabels": {
+        "app": "todomvc"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "todomvc"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "image": "#{image}",
+            "name": "todomvc",
+            "ports": [
+              {
+                "containerPort": 80,
+                "protocol": "TCP"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

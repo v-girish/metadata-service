@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: metadata-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: metadata-service
+  template:
+    metadata:
+      labels:
+        app: metadata-service
+    spec:
+      containers:
+      - name: my-web-app
+        image: girishvarun/metadata-service:1.0
+        ports:
+        - containerPort: 8080
