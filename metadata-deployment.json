@@ -3,31 +3,31 @@
   "kind": "Deployment",
   "metadata": {
     "labels": {
-      "app": "todomvc"
+      "app": "metadata"
     },
-    "name": "todomvc-deployment"
+    "name": "metadata-deployment"
   },
   "spec": {
     "replicas": 2,
     "selector": {
       "matchLabels": {
-        "app": "todomvc"
+        "app": "metadata"
       }
     },
     "template": {
       "metadata": {
         "labels": {
-          "app": "todomvc"
+          "app": "metadata"
         }
       },
       "spec": {
         "containers": [
           {
             "image": "#{image}",
-            "name": "todomvc",
+            "name": "metadata",
             "ports": [
               {
-                "containerPort": 80,
+                "containerPort": 8080,
                 "protocol": "TCP"
               }
             ]
